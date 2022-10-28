@@ -3,15 +3,15 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 Game/[Ll]ibrary/
-Game//[Tt]emp/
-Game//[Oo]bj/
-Game//[Bb]uild/
-Game//[Bb]uilds/
-Game//[Ll]ogs/
-Game//[Mm]emoryCaptures/
+Game/[Tt]emp/
+Game/[Oo]bj/
+Game/[Bb]uild/
+Game/[Bb]uilds/
+Game/[Ll]ogs/
+Game/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!Game//[Aa]ssets/**/*.meta
+!Game/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
