@@ -59,6 +59,13 @@ namespace StarterAssets
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
+        [Header("Fall Damage")]
+        [Tooltip("The value how much player needs to fall before take fall damage")]
+        public float FallDamageThreshold;
+
+        [Tooltip("The amount of damage taken per unit fallen")]
+        public float FallDamageMultiplier;
+
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
@@ -86,6 +93,12 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+
+        // fall damage
+        private float _startJumpHight;
+        private float _endJumpHight;
+        private float _fallDistance;
+        
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -135,7 +148,7 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -159,6 +172,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
         }
 
         private void LateUpdate()
@@ -299,6 +313,34 @@ namespace StarterAssets
                     _verticalVelocity = -2f;
                 }
 
+                if (_startJumpHight > 0.0f)
+                {
+                    _endJumpHight = transform.position.y;
+
+                    _fallDistance = _startJumpHight - _endJumpHight;
+                }
+
+                // Fall damage
+                if (_fallDistance > FallDamageThreshold)
+                {
+                    // calculate damage
+                    float damage = Mathf.Clamp(_fallDistance * FallDamageMultiplier, 0.0f, float.MaxValue);
+
+                    // apply damage
+                    if (damage > 0.0f)
+                    {
+                        Debug.Log($"Damage: {damage}");
+                        // // apply damage
+                        // _health.Damage(damage);
+
+                        // // play sound
+                        // if (FallDamageSound != null)
+                        // {
+                        //     AudioSource.PlayClipAtPoint(FallDamageSound, transform.position);
+                        // }
+                    }
+                }
+
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
@@ -317,9 +359,22 @@ namespace StarterAssets
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
                 }
+                _fallDistance = 0.0f;
+                _startJumpHight = 0.0f;
+                _endJumpHight = 0.0f;
             }
             else
             {
+
+                float playerHight = transform.position.y;
+                
+                if (playerHight > _startJumpHight)
+                {
+                    _startJumpHight = transform.position.y;
+                }
+
+                
+
                 // reset the jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
