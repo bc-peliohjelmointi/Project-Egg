@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         get { return _jumpMultiplier; }
         set
         {
-            if (value >= 1)
+            if (value > 1)
                 _jumpMultiplier = value;
             else
                 Debug.LogWarning("You cannot set jumpMultiplayer smaller than 1");
