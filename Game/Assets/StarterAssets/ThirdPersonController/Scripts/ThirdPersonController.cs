@@ -130,6 +130,7 @@ namespace StarterAssets
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
+        private ParticleSystem ps;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
@@ -173,6 +174,8 @@ namespace StarterAssets
                 "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it"
             );
 #endif
+
+            ps = GetComponentInChildren<ParticleSystem>();
 
             AssignAnimationIDs();
 
@@ -400,7 +403,16 @@ namespace StarterAssets
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity * Collectable.Instance.jumpMultiplier);
+                    _verticalVelocity = Mathf.Sqrt(
+                        JumpHeight * -2f * Gravity * GameManager.Instance.jumpMultiplier
+                    );
+                    
+
+                    if (GameManager.Instance.hasJumpBoots)
+                    {
+                        GameManager.Instance.startJumpBootsCooldown();
+                        ps.Play();
+                    }
 
                     // update animator if using character
                     if (_hasAnimator)
