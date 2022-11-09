@@ -14,6 +14,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public static ThirdPersonController Instance;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -128,6 +130,7 @@ namespace StarterAssets
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
+        private ParticleSystem ps;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
@@ -171,6 +174,8 @@ namespace StarterAssets
                 "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it"
             );
 #endif
+
+            ps = GetComponentInChildren<ParticleSystem>();
 
             AssignAnimationIDs();
 
@@ -397,8 +402,19 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    // the square root of H * -2 * G = how much velocity needed to reach desired height + GameManager.Instance.jumpMultiplier if hasJumpBoots is true
+                    if (GameManager.Instance.hasJumpBoots)
+                    {
+                        _verticalVelocity = Mathf.Sqrt(
+                            JumpHeight * -2f * Gravity * GameManager.Instance.jumpMultiplier
+                        );
+                        GameManager.Instance.startJumpBootsCooldown();
+                        ps.Play();
+                    }
+                    else
+                    {
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    }
 
                     // update animator if using character
                     if (_hasAnimator)
