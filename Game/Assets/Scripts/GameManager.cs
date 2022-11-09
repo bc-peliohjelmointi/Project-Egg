@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         get { return _jumpMultiplier; }
         set
         {
-            if (value > 1)
+            if (value >= 1)
                 _jumpMultiplier = value;
             else
                 Debug.LogWarning("You cannot set jumpMultiplayer smaller than 1");
@@ -38,14 +38,19 @@ public class GameManager : MonoBehaviour
 
     public void startJumpBootsCooldown()
     {
-        jumpMultiplier = 1.0f;
         StartCoroutine(jumpBootsCooldown());
+        StartCoroutine(hasJumpBootsWait());
     }
 
     IEnumerator jumpBootsCooldown()
     {
         yield return new WaitForSeconds(4);
-        jumpMultiplier = Random.Range(minJumpMultiplier, maxJumpMultiplier);
+        hasJumpBoots = true;
+    }
+    IEnumerator hasJumpBootsWait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hasJumpBoots = false;
     }
 
     // Update is called once per frame
