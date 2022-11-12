@@ -33,8 +33,14 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start() { }
+
+    public void ChangeCursorState(bool newState)
+    {
+        Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = newState;
+        GameObject.Find("PlayerArmature").GetComponent<StarterAssets.ThirdPersonController>().LockCameraPosition = newState;
+
+    }
 
     public void startJumpBootsCooldown()
     {
@@ -47,12 +53,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         hasJumpBoots = true;
     }
+
     IEnumerator hasJumpBootsWait()
     {
         yield return new WaitForSeconds(0.5f);
         hasJumpBoots = false;
     }
 
-    // Update is called once per frame
-    void Update() { }
 }
