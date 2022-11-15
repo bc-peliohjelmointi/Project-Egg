@@ -1,33 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class RaycastSystem : MonoBehaviour
 {
+    private StarterAssetsInputs _input;
+
     // Start is called before the first frame update
-    void Start() { }
+    void Start()
+    {
+        _input = GetComponent<StarterAssetsInputs>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            CheckForColliders();
-        }
+        CheckForColliders();
     }
 
     void CheckForColliders()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
-        // Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
-        if (Physics.Raycast(ray, out hit, 10f))
+        Debug.DrawRay(ray.origin, ray.direction * 6, Color.red);
+        if (Physics.Raycast(ray, out hit, 6f))
         {
-            if (hit.collider.tag == "Keypad")
+            switch (hit.collider.tag)
             {
-                GameManager.Instance.ChangeCursorState(true);
-                hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive();
+                case "Keypad":
+                    GameManager.Instance.interactInfoText.SetActive(true);
+                    if (_input.interact)
+                    {
+                        GameManager.Instance.ChangeCursorState(true);
+                        hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive();
+                    }
+                    break;
+                default:
+                    GameManager.Instance.interactInfoText.SetActive(false);
+                    break;
             }
+
         }
     }
 }
