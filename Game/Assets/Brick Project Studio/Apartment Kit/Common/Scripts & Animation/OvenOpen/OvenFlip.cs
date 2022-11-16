@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SojaExiles
+namespace StarterAssets
+
 
 {
 	public class OvenFlip: MonoBehaviour
@@ -27,7 +28,7 @@ namespace SojaExiles
 					{
 						if (open == false)
 						{
-							if (Input.GetMouseButton(0))
+							if (Input.GetMouseButtonDown(0))
 							{
 								StartCoroutine(opening());
 							}
