@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool open;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +44,11 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnOpen(InputValue value)
+		{
+			OpenInput(value.isPressed);	
+		}
 #endif
 
 
@@ -65,6 +71,12 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+
+		public void OpenInput(bool newOpenState)
+			{
+			open = newOpenState;
+		}
+			
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

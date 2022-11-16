@@ -17,7 +17,7 @@ namespace SojaExiles
 			open = false;
 		}
 
-		void OnMouseOver()
+		void OnBecameVisible()
 		{
 			{
 				if (Player)
@@ -27,7 +27,7 @@ namespace SojaExiles
 					{
 						if (open == false)
 						{
-							if (Input.GetMouseButtonDown(0))
+							if (Input.GetMouseButton(0))
 							{
 								StartCoroutine(opening());
 							}
