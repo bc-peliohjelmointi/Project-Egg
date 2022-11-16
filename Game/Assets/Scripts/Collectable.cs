@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
+
 
 public class Collectable : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class Collectable : MonoBehaviour
                 break;
         }
     }
+
+
 
     // Start is called before the first frame update
     void Start() { }

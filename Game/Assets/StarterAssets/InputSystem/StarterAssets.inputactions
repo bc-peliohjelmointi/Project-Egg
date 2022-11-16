@@ -42,10 +42,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Open",
-                    "type": "Button",
-                    "id": "0ef77043-9de0-46ef-a09b-b97a525e5909",
-                    "expectedControlType": "Button",
+                    "name": "Interact",
+                    "type": "PassThrough",
+                    "id": "e0e5c49b-322e-41fc-9bbd-d1a7ff40828f",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -230,23 +230,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8169bf1e-97ac-4950-b71c-169bd5dde12c",
+                    "id": "e63d03ac-0989-43e0-94f8-b9814ed32901",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Open",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a32d7612-8cc3-4a47-8644-bdac52ccdf4c",
+                    "id": "e8cdda4f-eb72-4db5-a52f-61e359c99714",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Open",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

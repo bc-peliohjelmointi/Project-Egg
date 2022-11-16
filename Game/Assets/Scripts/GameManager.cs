@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject interactInfoText;
     public static GameManager Instance;
+    public bool hasUIOpen = false;
     public bool hasJumpBoots = false;
     public float jumpMultiplier
     {
@@ -33,8 +35,16 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start() { }
+    public void ChangeCursorState(bool newState)
+    {
+        hasUIOpen = newState;
+        Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = newState;
+        GameObject
+            .Find("PlayerArmature")
+            .GetComponent<StarterAssets.ThirdPersonController>()
+            .LockCameraPosition = newState;
+    }
 
     public void startJumpBootsCooldown()
     {
@@ -47,12 +57,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         hasJumpBoots = true;
     }
+
     IEnumerator hasJumpBootsWait()
     {
         yield return new WaitForSeconds(0.5f);
         hasJumpBoots = false;
     }
 
-    // Update is called once per frame
-    void Update() { }
+    public void ActivateInfoText(bool value)
+    {
+        interactInfoText.SetActive(value);
+    }
 }
