@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
 
-public class RaycastSystem : MonoBehaviour
+public class InteractSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
 
