@@ -1,23 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
-namespace SojaExiles
+namespace UnityEngine
 
 {
 	public class opencloseDoor : MonoBehaviour
 	{
 
 		public Animator openandclose;
-		public bool open;
+        private StarterAssetsInputs _input;
+        public bool open;
 		public Transform Player;
 
 		void Start()
 		{
-			open = false;
+            _input = GetComponent<StarterAssetsInputs>();
+            open = false;
 		}
 
-		void OnMouseOver()
+		void OnBecameVisble()
 		{
 			{
 				if (Player)
@@ -25,9 +28,10 @@ namespace SojaExiles
 					float dist = Vector3.Distance(Player.position, transform.position);
 					if (dist < 15)
 					{
+
 						if (open == false)
 						{
-							if (Input.GetMouseButtonDown(0))
+							if (_input.interact)
 							{
 								StartCoroutine(opening());
 							}
@@ -36,7 +40,7 @@ namespace SojaExiles
 						{
 							if (open == true)
 							{
-								if (Input.GetMouseButtonDown(0))
+								if (_input.interact)
 								{
 									StartCoroutine(closing());
 								}
