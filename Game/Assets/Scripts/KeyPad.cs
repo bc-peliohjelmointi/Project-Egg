@@ -12,8 +12,7 @@ namespace DoorCode
         [SerializeField]
         TextMeshProUGUI _screenText;
 
-        [SerializeField]
-        GameObject _keyPadUI;
+        
 
         // Start is called before the first frame update
         void Start() { }
@@ -41,8 +40,7 @@ namespace DoorCode
             if (inputCode == DoorCodeGenerator.fullCode)
             {
                 Debug.Log("Correct Code");
-                GameManager.Instance.ChangeCursorState(false);
-                _keyPadUI.SetActive(false);
+                SetKeyPadUIActive(false);
             }
             else
             {
@@ -52,9 +50,10 @@ namespace DoorCode
             }
         }
 
-        public void SetKeyPadUIActive()
+        public void SetKeyPadUIActive(bool value)
         {
-            _keyPadUI.SetActive(true);
+            UIManager.Instance.ChangeCursorState(value);
+            UIManager.Instance.keyPadUI.SetActive(value);
         }
     }
 }
