@@ -5,15 +5,17 @@ using UnityEngine;
 public class RaycastSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    public GameObject bedroomToTunnelDoor;
-    private Animator openandcloseBedroom;
-    public bool open;
+    public GameObject door;
+    private Animator openandclose;
+    private bool open;
 
     // Start is called before the first frame update
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
-        openandcloseBedroom = bedroomToTunnelDoor.GetComponent<Animator>();
+        openandclose =  door.GetComponent<Animator>();
+        open = false;
+
     }
 
     // Update is called once per frame
@@ -46,16 +48,10 @@ public class RaycastSystem : MonoBehaviour
                     if (_input.interact)
 
                     {
-                        if (open == true)
-                        {
-                            StartCoroutine(openingBedroomToTunnel());
-                        }
-                        else
-                        {
-                            StartCoroutine(closingBedroomToTunnel());
-                        }
-                    }
-                    break;
+                            StartCoroutine(openingandclosing());
+                        }   
+                    
+                break;
 
 
                 default:
@@ -65,17 +61,30 @@ public class RaycastSystem : MonoBehaviour
 
         }
     }
-    IEnumerator openingBedroomToTunnel()
+    IEnumerator openingandclosing()
     {
-        openandcloseBedroom.Play("Opening");
+        if (open == false)
+        {
+        openandclose.Play("Opening");
+        GameManager.Instance.interactInfoText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         open = true;
+        }
+        else if (open == true)
+    {
+        openandclose.Play("Closing");
+        GameManager.Instance.interactInfoText.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        open = false;
+    }
         yield return new WaitForSeconds(0.5f);
     }
 
-    IEnumerator closingBedroomToTunnel()
+    IEnumerator closing()
     {
-        openandcloseBedroom.Play("Closing");
+        openandclose.Play("Closing");
         open = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
+
     }
 }

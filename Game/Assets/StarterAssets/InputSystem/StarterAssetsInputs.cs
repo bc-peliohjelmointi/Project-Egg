@@ -71,9 +71,9 @@ namespace StarterAssets
             sprint = newSprintState;
         }
 
-        public void InteractInput(bool newIntractState)
+        public void InteractInput(bool newInteractState)
         {
-            interact = newIntractState;
+            interact = newInteractState;
         }
 
         private void OnApplicationFocus(bool hasFocus)
