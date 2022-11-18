@@ -10,7 +10,7 @@ Game/[Bb]uilds/
 Game/[Ll]ogs/
 Game/[Mm]emoryCaptures/
 Game/[Uu]ser[Ss]ettings/
-Game/[Ww]ebgl[Gg][Ll] [Bb]uilds/
+Game/[Ww]eb[Gg][Ll] [Bb]uilds/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !Game/[Aa]ssets/**/*.meta
