@@ -29,15 +29,14 @@ public class InteractSystem : MonoBehaviour
             switch (hit.collider.tag)
             {
                 case "Keypad":
-                    GameManager.Instance.interactInfoText.SetActive(true);
+                    UIManager.Instance.ActivateInfoText(true);
                     if (_input.interact)
                     {
-                        GameManager.Instance.ChangeCursorState(true);
-                        hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive();
+                        hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive(true);
                     }
                     break;
                 default:
-                    GameManager.Instance.interactInfoText.SetActive(false);
+                    UIManager.Instance.ActivateInfoText(false);
                     break;
             }
 
