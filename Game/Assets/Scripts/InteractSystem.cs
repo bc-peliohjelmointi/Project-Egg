@@ -6,11 +6,15 @@ using StarterAssets;
 public class InteractSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
+    public GameObject bedroomToTunnelDoor;
+    private Animator _openandcloseBedroom;
+    public bool open;
 
     // Start is called before the first frame update
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
+        _openandcloseBedroom = bedroomToTunnelDoor.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,11 +39,39 @@ public class InteractSystem : MonoBehaviour
                         hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive(true);
                     }
                     break;
+                case "Door":
+                    UIManager.Instance.ActivateInfoText(true);
+                    if (_input.interact)
+                    {
+                        if (open)
+                        {
+                            StartCoroutine(openingBedroomToTunnel());
+                        }
+                        else
+                        {
+                            StartCoroutine(closingBedroomToTunnel());
+                        }
+                    }
+                    break;
                 default:
                     UIManager.Instance.ActivateInfoText(false);
                     break;
             }
-
         }
     }
+
+    IEnumerator openingBedroomToTunnel()
+    {
+        _openandcloseBedroom.Play("Opening");
+        open = true;
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator closingBedroomToTunnel()
+    {
+        _openandcloseBedroom.Play("Closing");
+        open = false;
+        yield return new WaitForSeconds(0.5f);
+    }
+
 }
