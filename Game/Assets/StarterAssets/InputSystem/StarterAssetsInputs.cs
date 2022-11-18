@@ -78,7 +78,7 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if(!GameManager.Instance.hasUIOpen)
+            if(!UIManager.Instance.hasUIOpen)
                 SetCursorState(cursorLocked);
         }
 
