@@ -163,4 +163,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputCode: 
   _screenText: {fileID: 0}
-  _keyPadUI: {fileID: 0}
