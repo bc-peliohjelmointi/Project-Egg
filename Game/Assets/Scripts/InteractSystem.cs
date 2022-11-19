@@ -2,7 +2,7 @@ using StarterAssets;
 using System.Collections;
 using UnityEngine;
 
-public class InteractSystem : MonoBehaviour
+public class RaycastSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     public GameObject door;
@@ -34,8 +34,17 @@ public class InteractSystem : MonoBehaviour
         {
             switch (hit.collider.tag)
             {
+                case "Keypad":
+                    GameManager.Instance.interactInfoText.SetActive(true);
+                    if (_input.interact)
+                    {
+                        GameManager.Instance.ChangeCursorState(true);
+                        hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive();
+                    }
+                    break;
+                
                 case "Door":
-                   // GameManager.Instance.interactInfoText.SetActive(true);
+                    GameManager.Instance.interactInfoText.SetActive(true);
                     if (_input.interact)
 
                     {
@@ -46,7 +55,7 @@ public class InteractSystem : MonoBehaviour
 
 
                 default:
-                  //  GameManager.Instance.interactInfoText.SetActive(false);
+                    GameManager.Instance.interactInfoText.SetActive(false);
                     break;
             }
 
@@ -57,18 +66,25 @@ public class InteractSystem : MonoBehaviour
         if (open == false)
         {
         openandclose.Play("Opening");
-     //   GameManager.Instance.interactInfoText.SetActive(false);
+        GameManager.Instance.interactInfoText.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         open = true;
         }
         else if (open == true)
     {
         openandclose.Play("Closing");
-      //  GameManager.Instance.interactInfoText.SetActive(false);
+        GameManager.Instance.interactInfoText.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         open = false;
     }
         yield return new WaitForSeconds(0.5f);
     }
 
+    IEnumerator closing()
+    {
+        openandclose.Play("Closing");
+        open = false;
+        yield return new WaitForSeconds(1f);
+
+    }
 }
