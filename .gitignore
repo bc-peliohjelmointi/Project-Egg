@@ -9,6 +9,8 @@ Game/[Bb]uild/
 Game/[Bb]uilds/
 Game/[Ll]ogs/
 Game/[Mm]emoryCaptures/
+Game/[Uu]ser[Ss]ettings/
+Game/[Ww]eb[Gg][Ll] [Bb]uilds/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !Game/[Aa]ssets/**/*.meta
@@ -55,27 +57,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-[Uu]ser[Ss]ettings/
-
 # Crashlytics generated file
 crashlytics-build.properties
-
-Game/WebGL Builds/Build/WebGL Builds.data.br
-Game/WebGL Builds/Build/WebGL Builds.framework.js.br
-Game/WebGL Builds/Build/WebGL Builds.loader.js
-Game/WebGL Builds/Build/WebGL Builds.wasm.br
-Game/WebGL Builds/dependencies.txt
-Game/WebGL Builds/GUID.txt
-Game/WebGL Builds/index.html
-Game/WebGL Builds/ProjectVersion.txt
-Game/WebGL Builds/StreamingAssets/UnityServicesProjectConfiguration.json
-Game/WebGL Builds/TemplateData/favicon.ico
-Game/WebGL Builds/TemplateData/fullscreen-button.png
-Game/WebGL Builds/TemplateData/progress-bar-empty-dark.png
-Game/WebGL Builds/TemplateData/progress-bar-empty-light.png
-Game/WebGL Builds/TemplateData/progress-bar-full-dark.png
-Game/WebGL Builds/TemplateData/progress-bar-full-light.png
-Game/WebGL Builds/TemplateData/style.css
-Game/WebGL Builds/TemplateData/unity-logo-dark.png
-Game/WebGL Builds/TemplateData/unity-logo-light.png
-Game/WebGL Builds/TemplateData/webgl-logo.png
