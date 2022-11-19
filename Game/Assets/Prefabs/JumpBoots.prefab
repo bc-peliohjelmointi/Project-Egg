@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2855802399969992097}
   - component: {fileID: 2855802399969992096}
-  - component: {fileID: 2855802399969992102}
   m_Layer: 0
   m_Name: JumpBoots
   m_TagString: Jumpboots
@@ -42,23 +41,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2855802399969992099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2855802399969992102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2855802399969992099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec5ad04cbd831b428ee0b79f801d044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.763504, y: 0.28628898, z: 0.5392847}
+  m_Center: {x: 0.011476517, y: -0.28709576, z: -0.104251385}
 --- !u!1001 &4100287774614418290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,26 +130,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7338759dfaac4064f990c09975be5082, type: 3}
---- !u!1 &3757778695449333283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7338759dfaac4064f990c09975be5082,
-    type: 3}
-  m_PrefabInstance: {fileID: 4100287774614418290}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1356505033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757778695449333283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73df31d322e553c49b54578fd5345985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 15
-  rotateAxis: {x: 0, y: 15, z: 0}
 --- !u!4 &4570484555071984793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7338759dfaac4064f990c09975be5082,

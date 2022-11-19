@@ -122,8 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9088313124134749498, guid: 4392c696c67365d4580ab604f7cd9783,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CloseAllUI
         m_Mode: 1

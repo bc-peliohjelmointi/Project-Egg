@@ -13,9 +13,8 @@ public class InteractSystem : MonoBehaviour
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
-        openandclose =  door.GetComponent<Animator>();
+        openandclose = door.GetComponent<Animator>();
         open = false;
-
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class InteractSystem : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * 6, Color.red);
 
-            if (Physics.Raycast(ray, out hit, 6f))
+        if (Physics.Raycast(ray, out hit, 6f))
         {
             switch (hit.collider.tag)
             {
@@ -42,41 +41,52 @@ public class InteractSystem : MonoBehaviour
                         hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive(true);
                     }
                     break;
-                
+                case "Jumpboots":
+                    UIManager.Instance.ActivateInfoText(true);
+                    if (_input.interact)
+                    {
+                        GameManager.Instance.hasJumpBoots = true;
+                        GameManager.Instance.jumpMultiplier = Random.Range(
+                            GameManager.Instance.minJumpMultiplier,
+                            GameManager.Instance.maxJumpMultiplier
+                        );
+
+                        Destroy(hit.collider.gameObject);
+                    }
+                    break;
+
                 case "Door":
                     UIManager.Instance.ActivateInfoText(true);
                     if (_input.interact)
-
                     {
-                            StartCoroutine(openingandclosing());
-                        }   
-                    
-                break;
+                        StartCoroutine(openingandclosing());
+                    }
 
+                    break;
 
                 default:
                     UIManager.Instance.ActivateInfoText(false);
                     break;
             }
-
         }
     }
+
     IEnumerator openingandclosing()
     {
         if (open == false)
         {
-        openandclose.Play("Opening");
-        UIManager.Instance.ActivateInfoText(false);
-        yield return new WaitForSeconds(0.5f);
-        open = true;
+            openandclose.Play("Opening");
+            UIManager.Instance.ActivateInfoText(false);
+            yield return new WaitForSeconds(0.5f);
+            open = true;
         }
         else if (open == true)
-    {
-        openandclose.Play("Closing");
-        UIManager.Instance.ActivateInfoText(false);
-        yield return new WaitForSeconds(0.5f);
-        open = false;
-    }
+        {
+            openandclose.Play("Closing");
+            UIManager.Instance.ActivateInfoText(false);
+            yield return new WaitForSeconds(0.5f);
+            open = false;
+        }
         yield return new WaitForSeconds(0.5f);
     }
 
@@ -85,6 +95,5 @@ public class InteractSystem : MonoBehaviour
         openandclose.Play("Closing");
         open = false;
         yield return new WaitForSeconds(1f);
-
     }
 }
