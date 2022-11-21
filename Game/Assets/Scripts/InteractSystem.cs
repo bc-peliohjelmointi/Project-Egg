@@ -22,7 +22,7 @@ public class InteractSystem : MonoBehaviour
     {
         CheckForColliders();
     }
-    
+
     void CheckForColliders()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -92,12 +92,5 @@ public class InteractSystem : MonoBehaviour
             open = false;
         }
         yield return new WaitForSeconds(0.5f);
-    }
-
-    IEnumerator closing()
-    {
-        openandclose.Play("Closing");
-        open = false;
-        yield return new WaitForSeconds(1f);
     }
 }

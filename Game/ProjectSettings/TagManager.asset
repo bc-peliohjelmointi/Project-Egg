@@ -8,6 +8,7 @@ TagManager:
   - Jumpboots
   - Keypad
   - Door
+  - Drawer
   layers:
   - Default
   - TransparentFX

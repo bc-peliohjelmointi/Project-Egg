@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6663758187029240332
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  threshold:
+    m_OverrideState: 0
+    m_Value: 0.9
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  scatter:
+    m_OverrideState: 0
+    m_Value: 0.7
+  clamp:
+    m_OverrideState: 0
+    m_Value: 65472
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-4184141563942927540
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -28,47 +69,6 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-1611666379576541211
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 1
-  threshold:
-    m_OverrideState: 1
-    m_Value: 0.8
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
-  scatter:
-    m_OverrideState: 1
-    m_Value: 0.392
-  clamp:
-    m_OverrideState: 1
-    m_Value: 1
-  tint:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
-  skipIterations:
-    m_OverrideState: 1
-    m_Value: 1
-  dirtTexture:
-    m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 7a051dbda2d7bc447bee412427cd311e, type: 3}
-    dimension: 1
-  dirtIntensity:
-    m_OverrideState: 1
-    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
   components:
   - {fileID: 2510235869634270641}
   - {fileID: -4184141563942927540}
-  - {fileID: -1611666379576541211}
-  - {fileID: 8675700780706896374}
+  - {fileID: -6663758187029240332}
+  - {fileID: 3039146860739863069}
   - {fileID: 2495674930436666695}
   - {fileID: 6741435884810993874}
 --- !u!114 &2495674930436666695
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Value: 0.1
   response:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.52
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
@@ -129,6 +129,31 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &3039146860739863069
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 0
+    m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 0
+    m_Value: 0
+  clamp:
+    m_OverrideState: 0
+    m_Value: 0.05
 --- !u!114 &6741435884810993874
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,30 +168,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   intensity:
-    m_OverrideState: 1
-    m_Value: 0.05
---- !u!114 &8675700780706896374
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.067
-  clamp:
     m_OverrideState: 1
     m_Value: 0.05
