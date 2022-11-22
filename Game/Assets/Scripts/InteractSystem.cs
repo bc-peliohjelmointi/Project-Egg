@@ -1,19 +1,19 @@
 using StarterAssets;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    public GameObject door;
     private Animator openandclose;
+    private GameObject door;
     private bool open;
 
     // Start is called before the first frame update
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
-        openandclose = door.GetComponent<Animator>();
         open = false;
     }
 
@@ -22,7 +22,7 @@ public class InteractSystem : MonoBehaviour
     {
         CheckForColliders();
     }
-
+    
     void CheckForColliders()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -59,6 +59,8 @@ public class InteractSystem : MonoBehaviour
                     UIManager.Instance.ActivateInfoText(true);
                     if (_input.interact)
                     {
+                        door = hit.collider.gameObject;
+                        openandclose = door.GetComponent<Animator>();
                         StartCoroutine(openingandclosing());
                     }
 
@@ -72,7 +74,9 @@ public class InteractSystem : MonoBehaviour
     }
 
     IEnumerator openingandclosing()
+
     {
+
         if (open == false)
         {
             openandclose.Play("Opening");
