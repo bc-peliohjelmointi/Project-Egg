@@ -27,7 +27,7 @@ Material:
   - EFFECT_HUE_VARIATION
   m_InvalidKeywords:
   - BACKFACE_NORMAL_MODE_MIRROR
-  - _WINDQUALITY_BEST
+  - _WINDQUALITY_FASTEST
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -88,9 +88,9 @@ Material:
     - _QueueOffset: 0
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0
-    - _TwoSided: 2
+    - _TwoSided: 0
     - _WINDQUALITY: 4
-    - _WindQuality: 4
+    - _WindQuality: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}

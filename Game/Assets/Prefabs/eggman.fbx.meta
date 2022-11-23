@@ -3,7 +3,52 @@ guid: a531ff08817db8a4b859714ceef391a0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyebrow012
+    second: {fileID: 2100000, guid: 3b74b3478c0aa244981efad55f9eb083, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelashes01
+    second: {fileID: 2100000, guid: c8f9d2d44f8c7c74eadc697b497b7a7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: high-poly
+    second: {fileID: 2100000, guid: 43d3ede7ef027c542a437b5889d09cea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: male_casualsuit01
+    second: {fileID: 2100000, guid: decbe53615816024f92053333d898413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: male_generic
+    second: {fileID: 2100000, guid: 20bc66a9d89cfc64baeffa1eaf1cc169, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes01
+    second: {fileID: 2100000, guid: d4cac31c96088904aa5a4f87e1dea920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: short04
+    second: {fileID: 2100000, guid: e2955fa22f208534abd6a2e033196afa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth_base
+    second: {fileID: 2100000, guid: ab5f49d78b58ffe43a4d50d0e986e95b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue01
+    second: {fileID: 2100000, guid: 3e1aebbd55de0864cbb1f16a1f3b6709, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -76,7 +121,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human:
