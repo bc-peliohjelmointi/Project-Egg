@@ -25,6 +25,7 @@ Game/[Aa]ssets/Plugins/Editor/JetBrains*
 Game/.vs/
 Game/.vscode/
 Game/.config/
+Game/.vsconfig/
 
 # Gradle cache directory
 Game/.gradle/
