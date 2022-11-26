@@ -10,12 +10,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [SerializeField]
-    private RectMask2D _JumpBootsCooldownMask;
     public GameObject keyPadUI;
     public GameObject interactInfoText;
     public bool hasUIOpen = false;
-    float originalSize;
 
     private void Awake()
     {
@@ -69,16 +66,5 @@ public class UIManager : MonoBehaviour
                 CloseAllUI();
             }
         }
-    }
-
-    private void Start()
-    {
-        originalSize = _JumpBootsCooldownMask.rectTransform.rect.width;
-        UpdateJumpBootsCooldown(4.0f);
-    }
-
-    public void UpdateJumpBootsCooldown(float cooldown)
-    {
-        _JumpBootsCooldownMask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * cooldown);
     }
 }
