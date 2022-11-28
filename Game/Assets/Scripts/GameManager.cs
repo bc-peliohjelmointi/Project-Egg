@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool hasJumpBoots = false;
-    public bool isReady;
+    public bool isReady = true;
     public float jumpMultiplier
     {
         get { return _jumpMultiplier; }
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
     {
         if (cooldown < maxCooldown && hasJumpBoots && !isReady)
         {
-
             cooldown += Time.deltaTime * 2.21f;
             _cooldownBar.value = cooldown;
         }
