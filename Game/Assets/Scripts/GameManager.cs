@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool hasJumpBoots = false;
+    public bool isReady;
     public float jumpMultiplier
     {
         get { return _jumpMultiplier; }
@@ -22,6 +24,13 @@ public class GameManager : MonoBehaviour
     private float _jumpMultiplier = 1.0f;
     public float minJumpMultiplier;
     public float maxJumpMultiplier;
+
+    [SerializeField]
+    private Slider _cooldownBar;
+    public float cooldown;
+    public float maxCooldown = 10.0f;
+
+
 
     private void Awake()
     {
@@ -41,14 +50,32 @@ public class GameManager : MonoBehaviour
 
     IEnumerator jumpBootsCooldown()
     {
+        cooldown = 0;
+        _cooldownBar.value = cooldown;        
         yield return new WaitForSeconds(4);
-        hasJumpBoots = true;
+        isReady = true;
     }
 
     IEnumerator hasJumpBootsWait()
     {
         yield return new WaitForSeconds(0.5f);
-        hasJumpBoots = false;
+        isReady = false;
+    }
+
+    private void Start()
+    {
+        _cooldownBar.maxValue = maxCooldown;
+        // _cooldownBar.value = maxCooldown;
+    }
+
+    private void Update()
+    {
+        if (cooldown < maxCooldown && hasJumpBoots && !isReady)
+        {
+
+            cooldown += Time.deltaTime * 2.21f;
+            _cooldownBar.value = cooldown;
+        }
     }
 
 }

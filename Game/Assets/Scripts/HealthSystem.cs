@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
     public static HealthSystem Instance;
-    public float health = 100.0f;
+
+    [SerializeField]
+    private Slider healthBar;
+    public float health;
     public float maxHealth = 100.0f;
     public bool isDead = false;
 
@@ -18,12 +22,15 @@ public class HealthSystem : MonoBehaviour
             isDead = true;
         }
         Debug.Log(health);
+        healthBar.value = health;
     }
 
     public void Heal(float heal)
     {
         health += heal;
-        if (health > maxHealth) health = maxHealth;
+        if (health > maxHealth)
+            health = maxHealth;
+        healthBar.value = health;
     }
 
     private void Awake()
@@ -36,4 +43,10 @@ public class HealthSystem : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        // healthBar.maxValue = maxHealth;
+        // healthBar.value = maxHealth;
+        health = maxHealth;
+    }
 }

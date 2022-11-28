@@ -50,6 +50,7 @@ public class InteractSystem : MonoBehaviour
                             GameManager.Instance.minJumpMultiplier,
                             GameManager.Instance.maxJumpMultiplier
                         );
+                        GameManager.Instance.cooldown = GameManager.Instance.maxCooldown;
 
                         Destroy(hit.collider.gameObject);
                     }
