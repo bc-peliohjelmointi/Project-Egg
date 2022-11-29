@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool hasJumpBoots = false;
-    public bool isReady = true;
+    public bool isReady = false;
     public float jumpMultiplier
     {
         get { return _jumpMultiplier; }
@@ -26,11 +26,22 @@ public class GameManager : MonoBehaviour
     public float maxJumpMultiplier;
 
     [SerializeField]
-    private Slider _cooldownBar;
-    public float cooldown;
-    public float maxCooldown = 10.0f;
+    private Image _cooldownBar;
 
+    public float cooldown
+    {
+        get { return _cooldown; }
+        set
+        {
+            if (value >= 0)
+                _cooldown = value;
+            else
+                Debug.LogWarning("You cannot set cooldown smaller than 0");
+        }
+    }
 
+    private float _cooldown;
+    public float maxCooldown = 1.0f;
 
     private void Awake()
     {
@@ -51,7 +62,7 @@ public class GameManager : MonoBehaviour
     IEnumerator jumpBootsCooldown()
     {
         cooldown = 0;
-        _cooldownBar.value = cooldown;        
+        _cooldownBar.fillAmount = cooldown;
         yield return new WaitForSeconds(4);
         isReady = true;
     }
@@ -62,19 +73,14 @@ public class GameManager : MonoBehaviour
         isReady = false;
     }
 
-    private void Start()
-    {
-        _cooldownBar.maxValue = maxCooldown;
-        // _cooldownBar.value = maxCooldown;
-    }
-
     private void Update()
     {
+        if (cooldown >= maxCooldown) isReady = true;
+
         if (cooldown < maxCooldown && hasJumpBoots && !isReady)
         {
-            cooldown += Time.deltaTime * 2.21f;
-            _cooldownBar.value = cooldown;
+            cooldown += Time.deltaTime / 3.5f;
+            _cooldownBar.fillAmount = cooldown / maxCooldown;
         }
     }
-
 }
