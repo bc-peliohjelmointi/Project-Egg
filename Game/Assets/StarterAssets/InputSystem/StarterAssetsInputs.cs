@@ -2,6 +2,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
+using UI;
 
 namespace StarterAssets
 {
@@ -78,7 +79,7 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if(!UIManager.Instance.hasUIOpen)
+            if(!UIManager.hasUIOpen)
                 SetCursorState(cursorLocked);
         }
 

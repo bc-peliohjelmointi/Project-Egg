@@ -44,6 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e09feaf597713a47af5e93d6d0076ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyPadUI: {fileID: 0}
-  interactInfoText: {fileID: 0}
-  hasUIOpen: 0

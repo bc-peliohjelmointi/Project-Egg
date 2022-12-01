@@ -83,4 +83,9 @@ public class GameManager : MonoBehaviour
             _cooldownBar.fillAmount = cooldown / maxCooldown;
         }
     }
+
+    private void Start()
+    {
+        _cooldownBar.fillAmount = cooldown;
+    }
 }

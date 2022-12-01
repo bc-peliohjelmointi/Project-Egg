@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc803f194e87bf4289ca7a0a0df5af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   health: 100
   maxHealth: 100
   isDead: 0

@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasJumpBoots: 0
+  isReady: 0
   _jumpMultiplier: 1
   minJumpMultiplier: 2.5
   maxJumpMultiplier: 3.5
+  _cooldownBar: {fileID: 0}
+  maxCooldown: 1

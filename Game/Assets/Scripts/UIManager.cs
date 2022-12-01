@@ -5,65 +5,67 @@ using UnityEngine;
 using UnityEditor;
 #endif
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+namespace UI
 {
-    public static UIManager Instance;
-
-    public GameObject keyPadUI;
-    public GameObject interactInfoText;
-    public bool hasUIOpen = false;
-
-    private void Awake()
+    public class UIManager : MonoBehaviour
     {
-        if (Instance != null)
+
+        public static bool hasUIOpen = false;
+
+
+        // private void Awake()
+        // {
+        //     DontDestroyOnLoad(this);
+        // }
+
+        public static void ChangeCursorState(bool newState)
         {
-            Destroy(gameObject);
-            return;
+            hasUIOpen = newState;
+            Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = newState;
+            GameObject
+                .Find("PlayerArmature")
+                .GetComponent<StarterAssets.ThirdPersonController>()
+                .LockCameraPosition = newState;
         }
-        Instance = this;
-    }
 
-    public void ChangeCursorState(bool newState)
-    {
-        hasUIOpen = newState;
-        Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = newState;
-        GameObject
-            .Find("PlayerArmature")
-            .GetComponent<StarterAssets.ThirdPersonController>()
-            .LockCameraPosition = newState;
-    }
-
-    public void ActivateInfoText(bool value)
-    {
-        interactInfoText.SetActive(value);
-    }
-
-    // Method to close all ui
-    public void CloseAllUI()
-    {
-        hasUIOpen = false;
-        ChangeCursorState(false);
-        keyPadUI.SetActive(false);
-    }
-
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
-    private void Update()
-    {
-        if (hasUIOpen)
+        // Method to close all ui
+        public void CloseAllUI()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+            hasUIOpen = false;
+            ChangeCursorState(false);
+            InteractUI.ActivateKeyPadUI(false);
+        }
+
+        public void RestartScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void LoadScene(int scene)
+        {
+            SceneManager.LoadScene(scene);
+        }
+
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
+        private void Update()
+        {
+            if (hasUIOpen)
             {
-                CloseAllUI();
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+                {
+                    CloseAllUI();
+                }
             }
         }
     }

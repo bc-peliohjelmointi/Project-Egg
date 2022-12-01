@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UI;
 
 namespace DoorCode
 {
@@ -52,8 +53,8 @@ namespace DoorCode
 
         public void SetKeyPadUIActive(bool value)
         {
-            UIManager.Instance.ChangeCursorState(value);
-            UIManager.Instance.keyPadUI.SetActive(value);
+            UIManager.ChangeCursorState(value);
+            InteractUI.ActivateKeyPadUI(value);
         }
     }
 }

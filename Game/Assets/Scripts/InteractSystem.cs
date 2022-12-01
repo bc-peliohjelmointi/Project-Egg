@@ -2,6 +2,7 @@ using StarterAssets;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UI;
 
 public class InteractSystem : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class InteractSystem : MonoBehaviour
     {
         CheckForColliders();
     }
-    
+
     void CheckForColliders()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -34,15 +35,15 @@ public class InteractSystem : MonoBehaviour
             switch (hit.collider.tag)
             {
                 case "Keypad":
-                    UIManager.Instance.ActivateInfoText(true);
+                    InteractUI.ActivateInfoText(true);
                     if (_input.interact)
                     {
-                        UIManager.Instance.ChangeCursorState(true);
+                        UIManager.ChangeCursorState(true);
                         hit.collider.GetComponent<DoorCode.KeyPad>().SetKeyPadUIActive(true);
                     }
                     break;
                 case "Jumpboots":
-                    UIManager.Instance.ActivateInfoText(true);
+                    InteractUI.ActivateInfoText(true);
                     if (_input.interact)
                     {
                         GameManager.Instance.hasJumpBoots = true;
@@ -56,7 +57,7 @@ public class InteractSystem : MonoBehaviour
                     break;
 
                 case "Door":
-                    UIManager.Instance.ActivateInfoText(true);
+                    InteractUI.ActivateInfoText(true);
                     if (_input.interact)
                     {
                         door = hit.collider.gameObject;
@@ -67,27 +68,25 @@ public class InteractSystem : MonoBehaviour
                     break;
 
                 default:
-                    UIManager.Instance.ActivateInfoText(false);
+                    InteractUI.ActivateInfoText(false);
                     break;
             }
         }
     }
 
     IEnumerator openingandclosing()
-
     {
-
         if (open == false)
         {
             openandclose.Play("Opening");
-            UIManager.Instance.ActivateInfoText(false);
+            InteractUI.ActivateInfoText(false);
             yield return new WaitForSeconds(0.5f);
             open = true;
         }
         else if (open == true)
         {
             openandclose.Play("Closing");
-            UIManager.Instance.ActivateInfoText(false);
+            InteractUI.ActivateInfoText(false);
             yield return new WaitForSeconds(0.5f);
             open = false;
         }
