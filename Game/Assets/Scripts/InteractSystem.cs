@@ -92,11 +92,4 @@ public class InteractSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
     }
-
-    IEnumerator closing()
-    {
-        openandclose.Play("Closing");
-        open = false;
-        yield return new WaitForSeconds(1f);
-    }
 }
