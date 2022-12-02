@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Image _cooldownBar;
 
+    public GameObject closedText;
+
     public float cooldown
     {
         get { return _cooldown; }

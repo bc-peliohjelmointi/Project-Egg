@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UI;
+using DoorCode;
 
 public class InteractSystem : MonoBehaviour
 {
@@ -60,15 +61,23 @@ public class InteractSystem : MonoBehaviour
                     InteractUI.ActivateInfoText(true);
                     if (_input.interact)
                     {
-                        door = hit.collider.gameObject;
-                        openandclose = door.GetComponent<Animator>();
-                        StartCoroutine(openingandclosing());
+                        if (DoorCodeGenerator.codeAccepted)
+                        {
+                            door = hit.collider.gameObject;
+                            openandclose = door.GetComponent<Animator>();
+                            StartCoroutine(openingandclosing());
+                        }
+                        else
+                        {
+                            GameManager.Instance.closedText.SetActive(true);
+                        }
                     }
 
                     break;
 
                 default:
                     InteractUI.ActivateInfoText(false);
+                    GameManager.Instance.closedText.SetActive(false);
                     break;
             }
         }

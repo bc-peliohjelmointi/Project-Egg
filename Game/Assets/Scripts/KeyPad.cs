@@ -40,6 +40,7 @@ namespace DoorCode
         {
             if (inputCode == DoorCodeGenerator.fullCode)
             {
+                DoorCodeGenerator.codeAccepted = true;
                 Debug.Log("Correct Code");
                 SetKeyPadUIActive(false);
             }
