@@ -11,6 +11,7 @@ public class InteractSystem : MonoBehaviour
     private Animator openandclose;
     private GameObject door;
     private bool open;
+    public float rayLength = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,9 @@ public class InteractSystem : MonoBehaviour
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 6, Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
 
-        if (Physics.Raycast(ray, out hit, 6f))
+        if (Physics.Raycast(ray, out hit, rayLength))
         {
             switch (hit.collider.tag)
             {
