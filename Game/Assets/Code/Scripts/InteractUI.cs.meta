@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 696c61f9a02657549a9f172d9ba9209f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - keyPadUI: {fileID: 7334145406672433277, guid: 80c83f786ecac3943877a05ea8b18cf1,
+      type: 3}
+  - interactInfoText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
