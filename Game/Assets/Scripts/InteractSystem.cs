@@ -8,16 +8,14 @@ using DoorCode;
 public class InteractSystem : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    private Animator openandclose;
+    private Animator _doorAnimator;
     private GameObject door;
-    private bool open;
     public float rayLength = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
-        open = false;
     }
 
     // Update is called once per frame
@@ -65,8 +63,17 @@ public class InteractSystem : MonoBehaviour
                         if (DoorCodeGenerator.codeAccepted)
                         {
                             door = hit.collider.gameObject;
-                            openandclose = door.GetComponent<Animator>();
-                            StartCoroutine(openingandclosing());
+                            _doorAnimator = door.GetComponent<Animator>();
+                            if (_doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Closing"))
+                            {
+                                _doorAnimator.SetTrigger("Open");
+                                _doorAnimator.ResetTrigger("Close");
+                            }
+                            else if (_doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Opening"))
+                            {
+                                _doorAnimator.SetTrigger("Close");
+                                _doorAnimator.ResetTrigger("Open");
+                            }
                         }
                         else
                         {
@@ -82,24 +89,5 @@ public class InteractSystem : MonoBehaviour
                     break;
             }
         }
-    }
-
-    IEnumerator openingandclosing()
-    {
-        if (open == false)
-        {
-            openandclose.Play("Opening");
-            InteractUI.ActivateInfoText(false);
-            yield return new WaitForSeconds(0.5f);
-            open = true;
-        }
-        else if (open == true)
-        {
-            openandclose.Play("Closing");
-            InteractUI.ActivateInfoText(false);
-            yield return new WaitForSeconds(0.5f);
-            open = false;
-        }
-        yield return new WaitForSeconds(0.5f);
     }
 }
