@@ -79,13 +79,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (cooldown >= maxCooldown) isReady = true;
+        if (cooldown >= maxCooldown)
+            isReady = true;
 
         if (cooldown < maxCooldown && hasJumpBoots && !isReady)
         {
             cooldown += Time.deltaTime / 3.5f;
             _cooldownBar.fillAmount = cooldown / maxCooldown;
         }
+
     }
 
     private void Start()
