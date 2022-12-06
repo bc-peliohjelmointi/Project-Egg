@@ -13,6 +13,9 @@ namespace DoorCode
         [SerializeField]
         TextMeshProUGUI _screenText;
 
+        [SerializeField]
+        List<AudioClip> _audioClips = new List<AudioClip>();
+
         
 
         // Start is called before the first frame update
@@ -28,7 +31,8 @@ namespace DoorCode
                 inputCode += num.ToString();
                 _screenText.text = inputCode;
             }
-		    GetComponent<AudioSource>().Play();
+
+		    GetComponent<AudioSource>().PlayOneShot(_audioClips[0]);
         }
 
         public void ClearButtonPress()
@@ -42,7 +46,7 @@ namespace DoorCode
             if (inputCode == DoorCodeGenerator.fullCode)
             {
                 DoorCodeGenerator.codeAccepted = true;
-                Debug.Log("Correct Code");
+                GetComponent<AudioSource>().PlayOneShot(_audioClips[1]);
                 SetKeyPadUIActive(false);
             }
             else
