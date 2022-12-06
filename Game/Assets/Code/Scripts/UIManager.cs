@@ -11,9 +11,7 @@ namespace UI
 {
     public class UIManager : MonoBehaviour
     {
-
         public static bool hasUIOpen = false;
-
 
         // private void Awake()
         // {
@@ -34,9 +32,9 @@ namespace UI
         // Method to close all ui
         public void CloseAllUI()
         {
-            hasUIOpen = false;
             ChangeCursorState(false);
             InteractUI.ActivateKeyPadUI(false);
+            GameManager.Instance.pauseMenu.SetActive(false);
         }
 
         public void RestartScene()
@@ -65,6 +63,15 @@ namespace UI
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
                 {
                     CloseAllUI();
+                }
+            }
+
+            else if (!hasUIOpen)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    ChangeCursorState(true);
+                    GameManager.Instance.pauseMenu.SetActive(true);
                 }
             }
         }

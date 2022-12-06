@@ -28,6 +28,7 @@ namespace DoorCode
                 inputCode += num.ToString();
                 _screenText.text = inputCode;
             }
+		    GetComponent<AudioSource>().Play();
         }
 
         public void ClearButtonPress()

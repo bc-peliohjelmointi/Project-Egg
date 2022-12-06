@@ -76,7 +76,6 @@ public class CreateFolders : EditorWindow
         if (GUILayout.Button("Create Folders"))
         {
             CreateAllFolders();
-            Debug.Log("Teki");
             Close();
         }
         

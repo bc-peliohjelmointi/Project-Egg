@@ -47,7 +47,9 @@ MonoBehaviour:
   hasJumpBoots: 0
   isReady: 0
   _jumpMultiplier: 1
-  minJumpMultiplier: 2.5
-  maxJumpMultiplier: 3.5
+  minJumpMultiplier: 2
+  maxJumpMultiplier: 2.5
   _cooldownBar: {fileID: 0}
+  closedText: {fileID: 0}
+  pauseMenu: {fileID: 0}
   maxCooldown: 1

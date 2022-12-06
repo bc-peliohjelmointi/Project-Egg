@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GameObject pauseMenu;
+
     private float _cooldown;
     public float maxCooldown = 1.0f;
 
