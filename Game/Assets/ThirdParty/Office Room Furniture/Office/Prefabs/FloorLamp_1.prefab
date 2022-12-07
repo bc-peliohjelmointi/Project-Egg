@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 460272}
   - component: {fileID: 10834944}
   - component: {fileID: 365962856301862742}
+  - component: {fileID: 1319169379}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155568}
   m_LocalRotation: {x: 0.5205759, y: -0.47854024, z: -0.47854033, w: 0.52057576}
-  m_LocalPosition: {x: -0.00016897233, y: -0.00013729386, z: 0.11015632}
+  m_LocalPosition: {x: -0.0018, y: 0.0009, z: 0.1114}
   m_LocalScale: {x: 0.030899879, y: 0.030899886, z: 0.03089988}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,8 +46,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.82745105, g: 0.7490196, b: 0.6117647, a: 1}
-  m_Intensity: 0.7
-  m_Range: 15
+  m_Intensity: 0.6
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -54,7 +55,7 @@ Light:
     m_Type: 2
     m_Resolution: 3
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.59
     m_Bias: 0
     m_NormalBias: 0
     m_NearPlane: 0.15
@@ -87,15 +88,35 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.65e-43, y: 20806.453, z: 5.65e-43, w: 3.8381405}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.2
   m_ShadowAngle: 0
 --- !u!114 &365962856301862742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1319169379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +147,7 @@ GameObject:
   - component: {fileID: 475380}
   - component: {fileID: 3384494}
   - component: {fileID: 2383490}
+  - component: {fileID: 7117954785844560623}
   m_Layer: 0
   m_Name: FloorLamp_1
   m_TagString: Untagged
@@ -140,15 +162,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159396}
-  m_LocalRotation: {x: -0.67568254, y: 0.20845433, z: 0.20845437, w: 0.6756824}
+  m_LocalRotation: {x: -0.6756824, y: 0.20845452, z: 0.20845452, w: 0.6756824}
   m_LocalPosition: {x: 5.275, y: 0.037, z: -3.361}
-  m_LocalScale: {x: 32.36258, y: 32.36258, z: 32.36258}
+  m_LocalScale: {x: 8, y: 8, z: 13}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 460272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 34.291}
 --- !u!33 &3384494
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -199,3 +221,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7117954785844560623
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 55094d0efcd046e408f83bbc63b59f35, type: 3}

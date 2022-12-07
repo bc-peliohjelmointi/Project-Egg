@@ -8,8 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Table_97_Artek_Wood_natural
-  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  m_ValidKeywords: []
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ValidKeywords:
+  - _DETAIL_MULX2
+  - _NORMALMAP
+  - _OCCLUSIONMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,9 +38,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: e2bd98784497163459c8a162b8fddc2e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: a0e0457c9788feb4f989fdc5b6977fde, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 1, y: 0}
     - _BentNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 280b9617cd8dbde4f8c3a20d529b8051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CoatMaskMap:
@@ -56,7 +59,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 2800000, guid: e2bd98784497163459c8a162b8fddc2e, type: 3}
-        m_Scale: {x: 6, y: 6}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 2800000, guid: e2bd98784497163459c8a162b8fddc2e, type: 3}
@@ -95,9 +98,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e2bd98784497163459c8a162b8fddc2e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: a0e0457c9788feb4f989fdc5b6977fde, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 1, y: 0}
     - _MaskMap:
         m_Texture: {fileID: 2800000, guid: b879b1aa771cb72428f50db19868906e, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -269,7 +272,7 @@ Material:
     - _Shininess: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0.05
+    - _Smoothness: 0.343
     - _SmoothnessRemapMax: 0.64026165
     - _SmoothnessRemapMin: 0
     - _SmoothnessSource: 0
@@ -329,7 +332,7 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _SpecColor: {r: 0.014705896, g: 0.014705896, b: 0.014705896, a: 1}
+    - _SpecColor: {r: 0.014705896, g: 0.014705896, b: 0.014705896, a: 0.05}
     - _SpecularColor: {r: 0.42352942, g: 0.33333334, b: 0.2627451, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}

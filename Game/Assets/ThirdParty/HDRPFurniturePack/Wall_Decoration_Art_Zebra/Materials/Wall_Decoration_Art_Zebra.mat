@@ -81,7 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 2800000, guid: 7857849eae41b004c8f9661bbd4de3a5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5a35553f05c786143a779cb9fc68c452, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortionVectorMap:
