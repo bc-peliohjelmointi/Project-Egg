@@ -27,6 +27,7 @@ namespace UI
         {
             staticKeyPadUI = keyPadUI;
             staticInteractInfoText = interactInfoText;
+            CloseAllUI();
         }
     }
 }

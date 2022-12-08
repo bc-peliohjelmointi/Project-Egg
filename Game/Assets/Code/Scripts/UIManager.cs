@@ -32,19 +32,19 @@ namespace UI
         // Method to close all ui
         public void CloseAllUI()
         {
-            ChangeCursorState(false);
             InteractUI.ActivateKeyPadUI(false);
             GameManager.Instance.pauseMenu.SetActive(false);
+            ChangeCursorState(false);
         }
 
         public void RestartScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
 
         public void LoadScene(int scene)
         {
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
 
         public void QuitGame()
